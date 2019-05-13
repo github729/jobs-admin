@@ -12,8 +12,7 @@ export class UserProfilePageComponent implements OnInit {
     currentPage: string = "About"
 
     ngOnInit() {
-        // Horizontal Timeline js for user timeline
-        $.getScript('./assets/js/vertical-timeline.js');
+
     }
 
     showPage(page: string) {
