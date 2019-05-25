@@ -1,0 +1,229 @@
+<!-- Reactive Form Validaton Starts -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Govt Jobs Create Form</h4>
+      </div>
+      <div class="card-body">
+        <div class="card-block">
+          <form [formGroup]="govtJobsForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group">
+              <label for="organization">Organization</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="organization"
+                formControlName="organization"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('organization').valid &&
+                  (govtJobsForm.get('organization').dirty ||
+                    govtJobsForm.get('organization').touched)
+                "
+                >Please enter a Organization</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="postName">Post Name</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="postName"
+                formControlName="postName"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('postName').valid &&
+                  (govtJobsForm.get('postName').dirty ||
+                    govtJobsForm.get('postName').touched)
+                "
+                >Please enter a Post Name</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="qualification">Qualification</label>
+
+              <textarea
+                class="form-control"
+                rows="3"
+                id="qualification"
+                formControlName="qualification"
+                required
+              ></textarea>
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('qualification').valid &&
+                  (govtJobsForm.get('qualification').dirty ||
+                    govtJobsForm.get('qualification').touched)
+                "
+                >This field is required!</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="deadLine">Dead Line</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="deadLine"
+                formControlName="deadLine"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('deadLine').valid &&
+                  (govtJobsForm.get('deadLine').dirty ||
+                    govtJobsForm.get('deadLine').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="state"
+                formControlName="state"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('state').valid &&
+                  (govtJobsForm.get('state').dirty ||
+                    govtJobsForm.get('state').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="industry">Industry</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="industry"
+                formControlName="industry"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('industry').valid &&
+                  (govtJobsForm.get('industry').dirty ||
+                    govtJobsForm.get('industry').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="notificationFile">Notification File</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="notificationFile"
+                formControlName="notificationFile"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('notificationFile').valid &&
+                  (govtJobsForm.get('notificationFile').dirty ||
+                    govtJobsForm.get('notificationFile').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="totalVacancies">Total Vacancies</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="totalVacancies"
+                formControlName="totalVacancies"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('totalVacancies').valid &&
+                  (govtJobsForm.get('totalVacancies').dirty ||
+                    govtJobsForm.get('totalVacancies').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="postedDate">Posted Date</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="postedDate"
+                formControlName="postedDate"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('postedDate').valid &&
+                  (govtJobsForm.get('postedDate').dirty ||
+                    govtJobsForm.get('postedDate').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="officialSite">Official Site</label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="officialSite"
+                formControlName="officialSite"
+                required
+              />
+              <small
+                class="form-text text-muted danger"
+                *ngIf="
+                  !govtJobsForm.get('officialSite').valid &&
+                  (govtJobsForm.get('officialSite').dirty ||
+                    govtJobsForm.get('officialSite').touched)
+                "
+                >This a required field</small
+              >
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-danger btn-raised">
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-success btn-raised"
+                [disabled]="!govtJobsForm.valid"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Reactive Form Validaton Ends -->

@@ -23,4 +23,25 @@ export const ROUTES: RouteInfo[] = [
       }
     ]
   },
+  {
+    path: "",
+    title: "Govt Jobs",
+    icon: "ft-edit",
+    class: "has-sub",
+    badge: "New",
+    badgeClass: "badge badge-pill badge-primary float-right mr-1 mt-1",
+    isExternalLink: false,
+    submenu: [
+      {
+        path: "/govt-jobs/create",
+        title: "NGX Wizard",
+        icon: "",
+        class: "",
+        badge: "",
+        badgeClass: "",
+        isExternalLink: false,
+        submenu: []
+      }
+    ]
+  }
 ];

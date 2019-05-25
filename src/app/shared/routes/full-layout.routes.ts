@@ -11,5 +11,8 @@ export const Full_ROUTES: Routes = [
     path: 'pages',
     loadChildren: './pages/full-pages/full-pages.module#FullPagesModule'
   },
-
+  {
+    path: 'govt-jobs',
+    loadChildren: './govt-jobs/govt-jobs.module#GovtJobsModule'
+  },
 ];
