@@ -34,7 +34,17 @@ export const ROUTES: RouteInfo[] = [
     submenu: [
       {
         path: "/govt-jobs/create",
-        title: "NGX Wizard",
+        title: "Create Jobs",
+        icon: "",
+        class: "",
+        badge: "",
+        badgeClass: "",
+        isExternalLink: false,
+        submenu: []
+      },
+      {
+        path: "/govt-jobs/list",
+        title: "Govt Jobs List",
         icon: "",
         class: "",
         badge: "",

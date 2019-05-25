@@ -4,10 +4,15 @@ import { GovtjobsComponent } from "./govtjobs/govtjobs.component";
 import { GovtjobsCreateComponent } from "./govtjobs-create/govtjobs-create.component";
 
 const routes: Routes = [
-  { path: "", component: GovtjobsComponent },
   {
-    path: "create",
-    component: GovtjobsCreateComponent
+    path: "",
+    children: [
+      { path: 'list', component: GovtjobsComponent },
+      {
+        path: "create",
+        component: GovtjobsCreateComponent
+      }
+    ]
   }
 ];
 

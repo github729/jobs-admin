@@ -9,27 +9,31 @@
         <div class="card-block">
           <form [formGroup]="govtJobsForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="form-group">
-              <label for="organization">Organization</label>
+              <label for="organisation"
+                >Organisation<span class="required">*</span></label
+              >
 
               <input
                 type="text"
                 class="form-control"
-                id="organization"
-                formControlName="organization"
+                id="organisation"
+                formControlName="organisation"
                 required
               />
               <small
                 class="form-text text-muted danger"
                 *ngIf="
-                  !govtJobsForm.get('organization').valid &&
-                  (govtJobsForm.get('organization').dirty ||
-                    govtJobsForm.get('organization').touched)
+                  !govtJobsForm.get('organisation').valid &&
+                  (govtJobsForm.get('organisation').dirty ||
+                    govtJobsForm.get('organisation').touched)
                 "
-                >Please enter a Organization</small
+                >Please enter a organisation</small
               >
             </div>
             <div class="form-group">
-              <label for="postName">Post Name</label>
+              <label for="postName"
+                >Post Name<span class="required">*</span></label
+              >
 
               <input
                 type="text"
@@ -49,11 +53,12 @@
               >
             </div>
             <div class="form-group">
-              <label for="qualification">Qualification</label>
+              <label for="qualification"
+                >Qualification<span class="required">*</span></label
+              >
 
               <textarea
                 class="form-control"
-                rows="3"
                 id="qualification"
                 formControlName="qualification"
                 required
@@ -69,27 +74,29 @@
               >
             </div>
             <div class="form-group">
-              <label for="deadLine">Dead Line</label>
+              <label for="deadline"
+                >Dead Line<span class="required">*</span></label
+              >
 
               <input
                 type="text"
                 class="form-control"
-                id="deadLine"
-                formControlName="deadLine"
+                id="deadline"
+                formControlName="deadline"
                 required
               />
               <small
                 class="form-text text-muted danger"
                 *ngIf="
-                  !govtJobsForm.get('deadLine').valid &&
-                  (govtJobsForm.get('deadLine').dirty ||
-                    govtJobsForm.get('deadLine').touched)
+                  !govtJobsForm.get('deadline').valid &&
+                  (govtJobsForm.get('deadline').dirty ||
+                    govtJobsForm.get('deadline').touched)
                 "
                 >This a required field</small
               >
             </div>
             <div class="form-group">
-              <label for="state">State</label>
+              <label for="state">State<span class="required">*</span></label>
 
               <input
                 type="text"
@@ -109,7 +116,9 @@
               >
             </div>
             <div class="form-group">
-              <label for="industry">Industry</label>
+              <label for="industry"
+                >Industry<span class="required">*</span></label
+              >
 
               <input
                 type="text"
@@ -128,28 +137,11 @@
                 >This a required field</small
               >
             </div>
-            <div class="form-group">
-              <label for="notificationFile">Notification File</label>
 
-              <input
-                type="text"
-                class="form-control"
-                id="notificationFile"
-                formControlName="notificationFile"
-                required
-              />
-              <small
-                class="form-text text-muted danger"
-                *ngIf="
-                  !govtJobsForm.get('notificationFile').valid &&
-                  (govtJobsForm.get('notificationFile').dirty ||
-                    govtJobsForm.get('notificationFile').touched)
-                "
-                >This a required field</small
-              >
-            </div>
             <div class="form-group">
-              <label for="totalVacancies">Total Vacancies</label>
+              <label for="totalVacancies"
+                >Total Vacancies<span class="required">*</span></label
+              >
 
               <input
                 type="text"
@@ -169,7 +161,9 @@
               >
             </div>
             <div class="form-group">
-              <label for="postedDate">Posted Date</label>
+              <label for="postedDate"
+                >Posted Date<span class="required">*</span></label
+              >
 
               <input
                 type="text"
@@ -189,7 +183,9 @@
               >
             </div>
             <div class="form-group">
-              <label for="officialSite">Official Site</label>
+              <label for="officialSite"
+                >Official Site<span class="required">*</span></label
+              >
 
               <input
                 type="text"
@@ -207,13 +203,37 @@
                 "
                 >This a required field</small
               >
+              <div class="form-group">
+                <label for="notificationFile"
+                  >Notification File<span class="required">*</span></label
+                ><br />
+
+                <input
+                  style="width:215px"
+                  type="file"
+                  required
+                  #fileInput
+                  (change)="fileChangeEvent($event)"
+                  placeholder="Upload file..."
+                />
+
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    !govtJobsForm.get('notificationFile').valid &&
+                    (govtJobsForm.get('notificationFile').dirty ||
+                      govtJobsForm.get('notificationFile').touched)
+                  "
+                  >This a required field</small
+                >
+              </div>
             </div>
             <div class="form-group">
               <button type="button" class="btn btn-danger btn-raised">
                 Cancel
               </button>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-success btn-raised"
                 [disabled]="!govtJobsForm.valid"
               >
