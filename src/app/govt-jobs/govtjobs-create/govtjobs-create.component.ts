@@ -25,12 +25,12 @@ export class GovtjobsCreateComponent implements OnInit {
         postName: new FormControl(null, [Validators.required]),
         qualification: new FormControl(null, [Validators.required]),
         deadline: new FormControl(null, [Validators.required]),
-        state: new FormControl(null, [Validators.required]),
-        industry: new FormControl(null, [Validators.required]),
-        notificationFile: new FormControl(null, [Validators.required]),
-        totalVacancies: new FormControl(null, [Validators.required]),
+        state: new FormControl(null),
+        industry: new FormControl(null),
+        notificationFile: new FormControl(null),
+        totalVacancies: new FormControl(null),
         postedDate: new FormControl(null, [Validators.required]),
-        officialSite: new FormControl(null, [Validators.required])
+        officialSite: new FormControl(null)
       },
       { updateOn: "blur" }
     );
