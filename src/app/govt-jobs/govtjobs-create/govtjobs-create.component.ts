@@ -43,7 +43,7 @@ export class GovtjobsCreateComponent implements OnInit {
       }
     });
   }
-  public fileChangeEvent() {
+  public fileChangeEvent(event) {
     let fileBrowser = this.fileInput.nativeElement;
     if (fileBrowser.files && fileBrowser.files[0]) {
       const formData = new FormData();
