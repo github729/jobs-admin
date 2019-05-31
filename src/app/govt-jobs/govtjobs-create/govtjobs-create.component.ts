@@ -24,7 +24,7 @@ export class GovtjobsCreateComponent implements OnInit {
         organisation: new FormControl(null, [Validators.required]),
         postName: new FormControl(null, [Validators.required]),
         qualification: new FormControl(null, [Validators.required]),
-        deadline: new FormControl(null, [Validators.required]),
+        deadline: new FormControl(null),
         state: new FormControl(null),
         industry: new FormControl(null),
         notificationFile: new FormControl(null),
