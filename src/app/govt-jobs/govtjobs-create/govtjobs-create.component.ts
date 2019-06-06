@@ -12,6 +12,8 @@ import { ToastsManager } from "ng2-toastr";
 export class GovtjobsCreateComponent implements OnInit {
   govtJobsForm: FormGroup;
   @ViewChild("fileInput") fileInput;
+  states: any;
+  industries: any;
   constructor(
     private jobsApi: JobsService,
     private router: Router,
@@ -19,21 +21,24 @@ export class GovtjobsCreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.govtJobsForm = new FormGroup(
-      {
-        organisation: new FormControl(null, [Validators.required]),
-        postName: new FormControl(null, [Validators.required]),
-        qualification: new FormControl(null, [Validators.required]),
-        deadline: new FormControl(null),
-        state: new FormControl(null),
-        industry: new FormControl(null),
-        notificationFile: new FormControl(null),
-        totalVacancies: new FormControl(null),
-        postedDate: new FormControl(null, [Validators.required]),
-        officialSite: new FormControl(null)
-      },
-      { updateOn: "blur" }
-    );
+    this.jobsApi.getStates().subscribe(data => {
+      this.states = data["data"];
+    });
+    this.jobsApi.getIndustries().subscribe(data => {
+      this.industries = data["data"];
+    });
+    this.govtJobsForm = new FormGroup({
+      organisation: new FormControl(null, [Validators.required]),
+      postName: new FormControl(null, [Validators.required]),
+      qualification: new FormControl(null, [Validators.required]),
+      deadline: new FormControl(null),
+      stateId: new FormControl(null),
+      industryId: new FormControl(null),
+      notificationFile: new FormControl(null),
+      totalVacancies: new FormControl(null),
+      postedDate: new FormControl(null, [Validators.required]),
+      officialSite: new FormControl(null)
+    });
   }
   onSubmit() {
     this.jobsApi.PostGovtJob(this.govtJobsForm.value).subscribe(res => {
@@ -54,7 +59,6 @@ export class GovtjobsCreateComponent implements OnInit {
       );
       this.jobsApi.upload(formData).subscribe(res => {
         if (res["success"]) {
-          // this.dynamicImg = ENV.SERVER_URL + res.data.profile_pic;
           this.toastr.success(res["message"], "Success!");
           this.govtJobsForm.controls["notificationFile"].setValue(res["data"]);
         } else {

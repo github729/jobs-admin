@@ -16,6 +16,19 @@ export class JobsService {
       .post(`${ENV.BASE_API}jobs`, filterData)
       .pipe(catchError(this.handleError));
   }
+  // get all Industries
+  getIndustries() {
+    return this.http
+      .get(`${ENV.BASE_API}industries`)
+      .pipe(catchError(this.handleError));
+  }
+
+    // get all States
+    getStates() {
+      return this.http
+        .get(`${ENV.BASE_API}states`)
+        .pipe(catchError(this.handleError));
+    }
 
   // get all govt Jobs
   getGovtJobs() {
